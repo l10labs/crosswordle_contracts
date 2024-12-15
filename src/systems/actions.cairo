@@ -1,4 +1,4 @@
-use dojo_starter::models::{Direction, Position};
+use crosswordle::models::{Direction, Position};
 
 // define the interface
 #[starknet::interface]
@@ -12,7 +12,7 @@ trait IActions<T> {
 pub mod actions {
     use super::{IActions, Direction, Position, next_position};
     use starknet::{ContractAddress, get_caller_address};
-    use dojo_starter::models::{Vec2, Moves, DirectionsAvailable};
+    use crosswordle::models::{Vec2, Moves, DirectionsAvailable};
 
     use dojo::model::{ModelStorage, ModelValueStorage};
     use dojo::event::EventStorage;
@@ -89,10 +89,10 @@ pub mod actions {
 
     #[generate_trait]
     impl InternalImpl of InternalTrait {
-        /// Use the default namespace "dojo_starter". This function is handy since the ByteArray
+        /// Use the default namespace "crosswordle". This function is handy since the ByteArray
         /// can't be const.
         fn world_default(self: @ContractState) -> dojo::world::WorldStorage {
-            self.world(@"dojo_starter")
+            self.world(@"crosswordle")
         }
     }
 }

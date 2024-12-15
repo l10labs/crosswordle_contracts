@@ -2,7 +2,7 @@
   "world": {
     "class_hash": "0x79d9ce84b97bcc2a631996c3100d57966fc2f5b061fb1ec4dfd0040976bcac6",
     "address": "0xe2ea9b5dd9804d13903edf712998943b7d5d606c139dd0f13eeb8f5b84da8d",
-    "seed": "crosswordle",
+    "seed": "dojo_starter",
     "name": "Dojo starter",
     "entrypoints": [
       "uuid",
@@ -1299,11 +1299,11 @@
         {
           "type": "impl",
           "name": "ActionsImpl",
-          "interface_name": "crosswordle::systems::actions::IActions"
+          "interface_name": "dojo_starter::systems::actions::IActions"
         },
         {
           "type": "enum",
-          "name": "crosswordle::models::Direction",
+          "name": "dojo_starter::models::Direction",
           "variants": [
             {
               "name": "None",
@@ -1329,7 +1329,7 @@
         },
         {
           "type": "interface",
-          "name": "crosswordle::systems::actions::IActions",
+          "name": "dojo_starter::systems::actions::IActions",
           "items": [
             {
               "type": "function",
@@ -1344,7 +1344,7 @@
               "inputs": [
                 {
                   "name": "direction",
-                  "type": "crosswordle::models::Direction"
+                  "type": "dojo_starter::models::Direction"
                 }
               ],
               "outputs": [],
@@ -1451,7 +1451,7 @@
         },
         {
           "type": "event",
-          "name": "crosswordle::systems::actions::actions::Event",
+          "name": "dojo_starter::systems::actions::actions::Event",
           "kind": "enum",
           "variants": [
             {
@@ -1468,7 +1468,7 @@
         }
       ],
       "init_calldata": [],
-      "tag": "crosswordle-actions",
+      "tag": "dojo_starter-actions",
       "selector": "0x7a1c71029f2d0b38e3ac89b09931d08b6e48417e079c289ff19a8698d0cba33",
       "systems": [
         "spawn",
@@ -1481,19 +1481,19 @@
     {
       "members": [],
       "class_hash": "0x7deb48ccf95cc441a0489cfefdae54aeb6f8ec462ba13ff25e23f080e66cc2f",
-      "tag": "crosswordle-DirectionsAvailable",
+      "tag": "dojo_starter-DirectionsAvailable",
       "selector": "0x77844f1facb51e60e546a9832d56c6bd04fa23be4fd5b57290caae5e9a3c1e4"
     },
     {
       "members": [],
       "class_hash": "0x70edf8f3be0b118e78f856f3ea9ebb652cba3684abaf7f299bfa6f93bf907c9",
-      "tag": "crosswordle-Moves",
+      "tag": "dojo_starter-Moves",
       "selector": "0x2a29373f1af8348bd366a990eb3a342ef2cbe5e85160539eaca3441a673f468"
     },
     {
       "members": [],
       "class_hash": "0x2283c68ecba5c60bbbbd3b00659808a02244468e41a1d2cdba1312d65b83594",
-      "tag": "crosswordle-Position",
+      "tag": "dojo_starter-Position",
       "selector": "0x2ac8b4c190f7031b9fc44312e6b047a1dce0b3f2957c33a935ca7846a46dd5b"
     }
   ],
@@ -1501,7 +1501,7 @@
     {
       "members": [],
       "class_hash": "0x5be0a05a5df3bd3b4fc17f8b1feb395cb463ced20ea41d4fbb9b86a4d7efc66",
-      "tag": "crosswordle-Moved",
+      "tag": "dojo_starter-Moved",
       "selector": "0x504403e5c02b6442527721fc464d9ea5fc8f1ee600ab5ccd5c0845d36fd45f1"
     }
   ]
