@@ -3,7 +3,7 @@
 use dojo::world::WorldStorage;
 use dojo::model::ModelStorage;
 
-use crosswordle::models::letter::Letter;
+use crosswordle::models::wordle::Wordle;
 
 #[derive(Copy, Drop)]
 struct Store {
@@ -18,12 +18,12 @@ impl StoreImpl of StoreTrait {
     }
 
     #[inline]
-    fn read_letter(self: Store, id: felt252) -> Letter {
+    fn read_word(self: Store, id: u64) -> Wordle {
         self.world.read_model(id)
     }
 
     #[inline]
-    fn write_letter(ref self: Store, letter: Letter) {
-        self.world.write_model(@letter);
+    fn write_word(ref self: Store, word: Wordle) {
+        self.world.write_model(@word);
     }
 }

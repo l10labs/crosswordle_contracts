@@ -2,9 +2,13 @@ mod store;
 
 mod models {
     mod index;
-    mod letter;
+    mod wordle;
 }
 
 mod components {
-    mod writable;
+    mod basewordles;
+}
+
+mod systems {
+    mod crosswordle;
 }
