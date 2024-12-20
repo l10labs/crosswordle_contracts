@@ -1,12 +1,5 @@
 use crosswordle::models::index::Wordle;
-
-const MIN_LETTER: u8 = 'A';
-const MAX_LETTER: u8 = 'Z';
-
-mod errors {
-    const WORD_NOT_5_CHARS: felt252 = 0;
-    const CHAR_NOT_A_LETTER: felt252 = 1;
-}
+use crosswordle::helpers::validity::assert_five_letter_word;
 
 #[generate_trait]
 impl WordleImpl of WordleTrait {
@@ -22,24 +15,11 @@ impl WordleImpl of WordleTrait {
     }
 }
 
-fn assert_five_letter_word(word_byte_array: @ByteArray) {
-    let word_length = word_byte_array.len();
-    assert(word_length == 5, errors::WORD_NOT_5_CHARS);
-
-    let mut i = 0;
-    while i < 5 {
-        assert(
-            word_byte_array[i] >= MIN_LETTER && word_byte_array[i] <= MAX_LETTER,
-            errors::CHAR_NOT_A_LETTER
-        );
-        i += 1;
-    };
-}
-
 #[cfg(test)]
 mod tests {
-    use super::{WordleImpl, assert_five_letter_word};
+    use super::WordleImpl;
     use crosswordle::models::index::Wordle;
+    use crosswordle::helpers::validity::assert_five_letter_word;
 
     #[test]
     fn test_pass_wordle_new() {
