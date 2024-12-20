@@ -1252,8 +1252,8 @@
   },
   "contracts": [
     {
-      "address": "0x6651009a5dda28a7c9e3e8234b3078b5998cafcca852967d3b4a181bcac84b6",
-      "class_hash": "0x1ab382ff02f7c93685e4c2ce8f1f10ef5edbab3eb4d3839ba2c8753b45721b4",
+      "address": "0x6044f0185cd341b4eac5c5d03746dd1dee9457df400f6e11aa278d4ad03b7c",
+      "class_hash": "0x6e53aa13eb732f974e0cdfbae08e0b7802a676c8da52771294dde36e6856b1a",
       "abi": [
         {
           "type": "impl",
@@ -1311,6 +1311,36 @@
           "inputs": [],
           "outputs": [],
           "state_mutability": "view"
+        },
+        {
+          "type": "impl",
+          "name": "CrosswordleImpl",
+          "interface_name": "crosswordle::systems::crosswordle::ICrosswordleTrait"
+        },
+        {
+          "type": "interface",
+          "name": "crosswordle::systems::crosswordle::ICrosswordleTrait",
+          "items": [
+            {
+              "type": "function",
+              "name": "start_game",
+              "inputs": [],
+              "outputs": [],
+              "state_mutability": "view"
+            },
+            {
+              "type": "function",
+              "name": "guess_word",
+              "inputs": [
+                {
+                  "name": "word_byte_array",
+                  "type": "core::byte_array::ByteArray"
+                }
+              ],
+              "outputs": [],
+              "state_mutability": "view"
+            }
+          ]
         },
         {
           "type": "impl",
@@ -1410,6 +1440,12 @@
         },
         {
           "type": "event",
+          "name": "crosswordle::components::gamestart::GameStartComponent::Event",
+          "kind": "enum",
+          "variants": []
+        },
+        {
+          "type": "event",
           "name": "crosswordle::systems::crosswordle::Crosswordle::Event",
           "kind": "enum",
           "variants": [
@@ -1426,6 +1462,11 @@
             {
               "name": "BaseWordlesEvent",
               "type": "crosswordle::components::basewordles::BaseWordlesComponent::Event",
+              "kind": "flat"
+            },
+            {
+              "name": "GameStartEvent",
+              "type": "crosswordle::components::gamestart::GameStartComponent::Event",
               "kind": "flat"
             }
           ]
@@ -1445,6 +1486,12 @@
       "class_hash": "0x32a6fb9f39a943af0b96fb4f7ade517b10c7f1f3def745f90decb66da91e647",
       "tag": "crosswordle-Game",
       "selector": "0x10e490080cb2b3b31e479e2b384492c2500299d21a9920c96e45642807bd14c"
+    },
+    {
+      "members": [],
+      "class_hash": "0xf29ca821747a210c550dc0a45f701ee3225a93a312880eb1a00e40e5981ef5",
+      "tag": "crosswordle-Progress",
+      "selector": "0x7bad5abcb3d354d7f0f2925f6bb18b404ee82b72776e98ca45639d18ba9641d"
     },
     {
       "members": [],
