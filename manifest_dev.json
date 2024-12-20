@@ -1442,6 +1442,12 @@
   "models": [
     {
       "members": [],
+      "class_hash": "0x32a6fb9f39a943af0b96fb4f7ade517b10c7f1f3def745f90decb66da91e647",
+      "tag": "crosswordle-Game",
+      "selector": "0x10e490080cb2b3b31e479e2b384492c2500299d21a9920c96e45642807bd14c"
+    },
+    {
+      "members": [],
       "class_hash": "0x4349ca9345d5fe3984a9f54d902329cf185f3e15d3d328bd89f5ef7bdd9d2a6",
       "tag": "crosswordle-Wordle",
       "selector": "0x73429167c05721b9e57738297c21771f3e6baab10609bcc7366d19a169ab43a"
