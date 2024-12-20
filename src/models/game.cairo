@@ -52,24 +52,54 @@ impl GameImpl of GameTrait {
         }
     }
 
-    fn set_guess(ref self: Game, word_byte_array: @ByteArray) -> Game {
+    fn assert_new(self: Game) {
+        assert(self.current_wordle_id == START_ID, 'Game already started');
+        assert(self.l1 == 0, 'Game already in progress');
+        assert(self.l2 == 0, 'Game already in progress');
+        assert(self.l3 == 0, 'Game already in progress');
+        assert(self.l4 == 0, 'Game already in progress');
+        assert(self.l5 == 0, 'Game already in progress');
+    }
+
+    fn assert_in_progress(self: Game) {
+        assert(self.current_wordle_id != START_ID, 'Game not started');
+    }
+
+    fn set_wordle_id(self: Game, wordle_id: felt252) -> Game {
+        Game { current_wordle_id: wordle_id, ..self }
+    }
+
+    fn set_guess(self: Game, word_byte_array: @ByteArray) -> Game {
         assert_five_letter_word(word_byte_array);
 
-        self.l1 = word_byte_array[0];
-        self.l2 = word_byte_array[1];
-        self.l3 = word_byte_array[2];
-        self.l4 = word_byte_array[3];
-        self.l5 = word_byte_array[4];
-
-        self
+        Game {
+            l1: word_byte_array[0],
+            l2: word_byte_array[1],
+            l3: word_byte_array[2],
+            l4: word_byte_array[3],
+            l5: word_byte_array[4],
+            ..self
+        }
     }
 
-    fn set_solved(ref self: Game) -> Game {
-        self.solved = true;
-        self
+    // fn set_solved(self: Game) -> Game {
+    //     let (s1, s2, s3, s4, s5) = (self.s1, self.s2, self.s3, self.s4, self.s5);
+    //     if s1 == GameStatus::Green
+    //         && s2 == GameStatus::Green
+    //         && s3 == GameStatus::Green
+    //         && s4 == GameStatus::Green
+    //         && s5 == GameStatus::Green {
+    //         Game { solved: true, ..self }
+    //     } else {
+    //         self
+    //     }
+    // }
+
+    fn is_solved(self: Game) -> bool {
+        self.solved
     }
 
-    fn compare_with_wordle(ref self: Game, wordle: Wordle) -> Game {
+    fn compare_with_wordle(self: Game, wordle: Wordle) -> Game {
         let solution = array![wordle.l1, wordle.l2, wordle.l3, wordle.l4, wordle.l5];
         let guess = array![self.l1, self.l2, self.l3, self.l4, self.l5];
 
