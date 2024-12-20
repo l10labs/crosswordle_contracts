@@ -4,10 +4,12 @@ mod models {
     mod index;
     mod wordle;
     mod game;
+    mod progress;
 }
 
 mod components {
     mod basewordles;
+    mod gamestart;
 }
 
 mod systems {

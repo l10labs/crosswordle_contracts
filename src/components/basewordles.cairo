@@ -32,7 +32,7 @@ mod BaseWordlesComponent {
             let mut i: usize = 0;
             while i < NUM_OF_WORDS {
                 let wordle: Wordle = WordleTrait::new(i.into(), wordle_list.at(i));
-                store.write_word(wordle);
+                store.write_wordle(wordle);
                 i += 1;
             }
         }
