@@ -43,7 +43,7 @@ mod GameStartComponent {
             store.write_game(game);
         }
 
-        fn guess_word(
+        fn guess_wordle(
             self: @ComponentState<TContractState>, world: WorldStorage, word_byte_array: @ByteArray
         ) {
             let mut store: Store = StoreTrait::new(world);

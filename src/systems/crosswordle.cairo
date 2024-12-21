@@ -1,7 +1,7 @@
 #[starknet::interface]
 trait ICrosswordleTrait<TContractState> {
     fn start_game(self: @TContractState);
-    fn guess_word(self: @TContractState, word_byte_array: ByteArray);
+    fn submit_guess(self: @TContractState, word_byte_array: ByteArray);
 }
 
 #[dojo::contract]
@@ -45,8 +45,8 @@ mod Crosswordle {
             self.game_start.start_game(self.world_storage());
         }
 
-        fn guess_word(self: @ContractState, word_byte_array: ByteArray) {
-            self.game_start.guess_word(self.world_storage(), @word_byte_array);
+        fn submit_guess(self: @ContractState, word_byte_array: ByteArray) {
+            self.game_start.guess_wordle(self.world_storage(), @word_byte_array);
             self.game_start.compare_guess_to_solution(self.world_storage());
             self.game_start.check_for_next_level(self.world_storage());
         }
